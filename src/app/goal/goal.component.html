@@ -1,0 +1,15 @@
+<h1>My Goals</h1>
+<hr style="border-color: red;">
+
+<ul>
+  <div *ngFor='let goal of goals; let i=index'>
+    <li>{{ goal.name }}</li>
+
+    <button (click)='toogleDetails(i)'>Toogle Details</button>
+    <br>
+    <app-goal-details [goal]='goal' *ngIf='goal.showDescription' (isComplete)='completeGoal($event, i)'></app-goal-details>
+    <br>
+  </div>
+</ul>
+
+<p *ngIf='goals.length > 5'>You have to many goals</p>
